@@ -1,3 +1,27 @@
+## ReelRig Ai [v0.2.0] - 2026-11-23 usual update
+
+### 🎞️ Deterministic Video Export (WebCodecs + Mediabunny)
+- **Frame-by-Frame 30 FPS MP4 Exporter:** Replaced real-time `MediaRecorder` drops with deterministic `1/30s` stepped offline rendering (`deterministicMp4Exporter.ts`) across both Three.js 3D and 2D Ink modes, ensuring smooth MP4 exports even on slower GPUs/laptops.
+- **Zero-Drift Audio Muxing:** Added `OfflineAudioContext` rendering to mix TTS, Custom Voiceovers, Music/AI Auto-Score, and SFX cleanly into the MP4 container with exact frame sync, progress counter, cancel support, and automatic `MediaRecorder` fallback on unsupported browsers.
+
+### 👁️ 16:9 2D Ink Vision Director & Consistency
+- **Multi-Reference Gemini Anchor Pipeline:** Upgraded `inkAnchorPipeline.ts` to natively pass multiple inline reference images (pinned Canon Character/Style Anchor + Location Master Anchor) on every shot to eliminate style and room drift by Act 3, including a 1-click **"Pin Panel 1 as Style Anchor"** control.
+- **AI Glitch Watchdog (Auto-QC):** Added a toggleable, single-call Gemini Flash vision pass (`visionDirectorQc.ts`) that detects extra limbs, garbled text, and broken style — automatically running at most 1 targeted retry to fix glitches while keeping BYOK costs capped.
+- **Smart Framing Pop-Cuts:** Used detected `characterFace`, `keyProp`, and `secondaryFocus` bounding boxes to center 16:9 hard cut-ins precisely on subjects with headroom protection and edge clamping instead of blind center crops.
+
+### 🧩 Studio UX, Timeline & Queue Reliability
+- **Focus Mode & Mobile View:** Added collapsible left/right sidebars with `ResizeObserver` canvas scaling, replaced blank preview states with interactive demo/action overlays, and built a clean `<768px` mobile preview experience.
+- **Showcase "Open & Remix in Studio":** Added 1-click cloning of featured 9:16 3D and 16:9 2D Ink presets directly into an editable Studio workspace.
+- **Interactive Proportional Mini-Timeline:** Upgraded the shot strip to proportional duration blocks with Drag & Drop reordering, quick `+` shot insertion, deletion, and per-shot readiness badges.
+- **Resilient Generation Queue:** Added centralized batch controls (`resilientGenerationQueue.ts`) with Pause/Resume/Cancel, automatic exponential backoff on `HTTP 429` / `503` rate limits, and subtle background tab completion alerts.
+
+### 🛠️ Pro Creator Workflow & Publishing
+- **Channel Brand Kit:** Added reusable channel presets (`brandKitStore.ts`) saving pinned character PNGs, accent color, paper tone, default voice/BGM, captions, and optional corner watermarks for 1-click reuse on new series.
+- **Editing Bundle (`.zip`) & Project Backup (`.reelrig.json`):** Added client-side `.zip` export (`projectZipExporter.ts`) with full-res visuals, per-shot audio files, timecoded `.srt` subtitles, and script metadata for DaVinci Resolve/CapCut, plus portable `.reelrig.json` backup/import and a quick Bug Report / Feedback link.
+- **Publish Pack & Thumbnail Feed Preview:** Added auto-calculated YouTube chapter timestamps (`0:00`+) with 1-click copy inside `Publish Pack`, plus a live Dark/Light Mobile & Desktop YouTube feed preview inside `Create Thumbnail`.
+
+### 🐛 Bug Fixes
+- **Fixed Audio Playback & Export `HTTP 404`:** Implemented a centralized audio asset resolver handling IndexedDB blobs and base64/data URIs directly without blind `fetch()` calls, safely clearing stale `blob:` URLs and dead demo paths so playback and `Export Video` never crash on missing audio.
 ## ReelRig AI [v0.1.1] - 2026-11-23 minor update
 
 ### 🎬 Three.js 3D Diorama Engine Overhaul
