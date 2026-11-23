@@ -1,4 +1,28 @@
-## ReelRig AI v0.1.0 - BETA
+## ReelRig AI [v0.1.1] - 2026-11-23 minor update
+
+### 🎬 Three.js 3D Diorama Engine Overhaul
+- **Cinematic Rendering & Lighting:** Upgraded WebGL pipeline with `ACESFilmicToneMapping`, `PCFSoftShadowMap`, procedural PBR surface textures (walls, scuffed floors, brushed metal), procedural IBL reflections, volumetric light cones, `FogExp2`, and export-safe post-processing (`UnrealBloomPass`, subtle vignette & grain).
+- **Expanded Multi-Zone 3D Map:** Upgraded from a single hallway to a 5-zone interconnected interior (`basement_corridor`, `locker_bay`, `security_office`, `elevator_lobby`, `stairwell_landing`) optimized with `THREE.InstancedMesh` for 60 FPS preview and export.
+- **Reactive Environmental Cues:** Added deterministic, timeline-synced world events (hinged/sliding doors, locked-door rattles, light flickers, emergency red power drops, live countdown timers, and dynamic flashlight beam tracking).
+- **Diverse Characters & Expressive Animation:** Replaced uniform character models with distinct procedural archetypes/outfits and a blended animation state machine (`idle_tense`, `walk_cautious`, `run_panic`, `look_around`, `startled_recoil`, `reach_interact`, `check_item`, `crouch_hide`) with clamped head/flashlight `lookAt` tracking.
+
+### 🖋️ 16:9 Survival Chronicle (2D Ink) Upgrade
+- **Visual Consistency & Reference Lock:** Added Episode Visual Bible, Character Reference sheets (with optional custom stickman PNG upload), Location Master Anchors (`locationId`) to prevent mutating rooms/furniture, strict anatomy guardrails, and one-click per-shot glitch regeneration.
+- **Dynamic 16:9 Pacing & Framing:** Enforced varied shot compositions (`wide_scene`, `tight_closeup`, `top_down_diagram`, `split_panel`, `impact_text_card`), snappy deterministic pop-cuts, subtle paper grain, and optional living-ink / callout controls.
+- **Snappy 1–2s Insert Shots:** Added matching 2D Ink cutaways (`inventory_checklist` synced with Continuity Snapshot, `resource_gauge`, `danger_clock`, `beat_stamp`) to break monotony in longer 2–10m episodes.
+- **Sharper Retention Script Engine:** Rewrote 16:9 storytelling prompts to eliminate generic AI clichés, enforce "BUT / THEREFORE" escalation loops, plant open loops, and prioritize concrete survival details.
+
+### 🎙️ Audio, Voiceover & Creator Workflow
+- **Custom Voiceover per Shot:** Added direct microphone recording and `.mp3`/`.wav`/`.m4a` upload per shot, automatic shot-duration fitting with silence trimming, and automatic skipping during batch AI TTS generation.
+- **Hybrid Music, AI Auto-Score & SFX:** Added background audio controls supporting custom track uploads (including Act 2 tension crossfades) as well as AI-directed procedural dark-ambient scores and synced foley SFX with automatic voiceover ducking — fully muxed into `Export Video`.
+- **Ending A/B Choice Toggle:** Added an On/Off switch (`includeEndingChoice`) to generate linear stories or standalone cliffhangers without forced viewer A/B choice cards, while keeping linear episode continuation intact.
+- **Pre-Flight API Cost Estimator:** Added transparent approximate BYOK cost estimates before triggering generation (explicitly reflecting `$0.00` visual cost in real-time Three.js 3D mode).
+
+### 🛡️ Compliance, Legal & Stability
+- **Legal & OAuth Readiness:** Audited and updated bilingual (PL/EN) Privacy Policy, Terms of Service (Beta "As-Is", BYOK disclaimer, user content responsibility), Google API Limited Use & YouTube API disclosures, honest cookie/storage notices, and EU AI Act transparency notes — accessible before login without losing Studio state.
+
+
+## ReelRig AI v0.1.0 - BETA 2026-11-22 First beta realease
 
 First public release of **ReelRig AI** — a browser-based AI video studio powered by **Three.js 3D** and **2D Ink** engines for creating 9:16 Shorts/TikToks and 16:9 story videos.
 
