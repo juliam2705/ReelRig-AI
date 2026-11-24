@@ -1,3 +1,16 @@
+## [v0.4.0] BETA - 2026-11-24 BIG UPDATE/FIX 3D THREE.JS
+
+### 🌤️ Outdoor Sky, Weather & Horizon Engine (3D Mode)
+- **Procedural Sky Dome & Celestial Lighting:** Added `skyAtmosphereEngine.ts` with a custom gradient sky shader synced to `FogExp2`, sun and moon discs aligned to the shadow-casting `DirectionalLight`, seeded twinkling starfields, and drifting `InstancedMesh` cloud layers.
+- **Deterministic 3D Weather & Wind:** Added `weatherAndHorizonEngine.ts` featuring camera-centered 3D rain streaks and falling snow (automatically masked out of interior rooms), deterministic storm lightning flashes, and wind-swaying exterior trees — fully synced frame-for-frame with 30 FPS WebCodecs MP4 export.
+- **Distant Horizon Ring:** Eliminated map-edge void drop-offs by generating an extended ground skirt and batched distant silhouettes (`mountains`, `forest`, `city_skyline`) matched to the world theme.
+- **Exterior Windows & Atmospheric Details:** Upgraded `proceduralWorldBuilder.ts`, `modularPropKit.ts`, and `proceduralMaterialLibrary.ts` to carve real framed windows on exterior-facing interior walls (keeping sky, weather, and horizon visible from indoors), add fake volumetric light cones under streetlamps, and enable wet reflective asphalt/puddles in rain and storm modes.
+- **Atmosphere & Sky Studio Controls:** Added prompt-based weather/time auto-inference plus a collapsible real-time **Atmosphere & Sky** override bar (`Time of Day`, `Weather`, `Horizon`) in 3D Studio — fully usable in **Zero-API Sandbox Mode** and persisted in `My Stories` / `.reelrig.json`.
+
+### 🧭 3D Character Navigation & Prop Collision Fix
+- **Sub-Tile Deterministic A* Pathfinding:** Added `obstacleNavigationGrid.ts` with a 0.5m walkability grid and exact prop XZ footprint colliders (`CHARACTER_RADIUS = 0.48m`) so characters cleanly navigate around tables, beds, desks, crates, and shelves instead of clipping through furniture.
+- **Path Smoothing & Doorway Guarantees:** Implemented ray-vs-AABB string-pulling smoothing for natural turns, enforced a `1.4m` doorway clearance zone during prop placement, and added `resolveSafeStandingPoint()` snapping so stationary spawns never clip into props or walls while staying 100% deterministic for MP4 export.
+
 ## [v0.3.0] - 2026-11-24 BIG UPDATE
 
 ### 🗺️ Procedural 3D World Engine (Prompt-to-Map)
