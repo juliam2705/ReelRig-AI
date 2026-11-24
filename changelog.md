@@ -1,3 +1,29 @@
+## [v0.3.0] - 2026-11-24 BIG UPDATE
+
+### 🗺️ Procedural 3D World Engine (Prompt-to-Map)
+- **Dynamic Multi-Location Grid Blueprints:** Added `mapBlueprintSchema.ts` and `proceduralWorldBuilder.ts` so prompts can automatically generate connected 4–16+ zone 3D worlds mixing interiors and exteriors, with automatic shared-wall doorway carving, safe prop slots, and overlap/connectivity validation.
+- **Procedural PBR Themes & Modular Prop Kit:** Built `proceduralMaterialLibrary.ts` (8 canvas-generated PBR themes: `hospital`, `school`, `bunker`, `supermarket`, `forest`, `street`, `spaceship`, `office`) and `modularPropKit.ts` (~24 stylized interior/exterior props with zero external `.glb` dependencies).
+- **60 FPS Large-Map Optimizations:** Implemented `THREE.InstancedMesh` batching, dynamic shadow Light Pooling (capped at 2–3 active shadow lights), graph-based Zone Culling, and deterministic cross-room BFS pathfinding (`findWorldPath`) with doorway swings and interior camera wall clamping.
+- **2D Floorplan Mini-Map:** Added a collapsible interactive 2D Mini-Map and **Regenerate World Layout** (`Compact` / `Medium` / `Large`) controls inside the 3D Studio.
+
+### 🎨 16:9 Survival Chronicle Engine (Editorial & Continuity Upgrade)
+- **Zero-Cost Programmatic Editorial Cards:** Added `editorialCardRenderer.ts` to render crisp, deterministic Canvas data cards (`day_intertitle`, `supplies_tracker`, `threat_counter`, `rule_card`, `fact_chart`) with zero image-API cost.
+- **Optical Masks & Clean Cinema Mode:** Added `peephole` and `binoculars` framing masks, a snappy hard cut-in pacing preset (`Beanie Cut-In Rhythm`), and **Clean Cinema Mode** (on-screen captions OFF by default for 16:9 while keeping `.srt` bundle export intact).
+- **Persistent Room State & Cast Signatures:** Added `roomStateContinuity.ts` so permanent plot changes (barricades, candles, damage) persist across days in the same location, paired with recurring `castSignatures` and grounded survival + mystery story direction.
+- **Full Movie Compilation Builder:** Added **Combine Episodes (Full Movie)** in `My Stories` to merge multiple 16:9 episodes into one unified long-form timeline with recalculated YouTube chapter timestamps.
+
+### 📺 Season Continuity ("Continue to Next Episode")
+- **Episode Carryover Engine:** Added `seasonContinuityEngine.ts` to extract and inherit ending day counts, remaining water/food supplies, surviving cast + pinned visual references, active room states, established rules, and open cliffhangers across `S1E1 → S1E2 → S1E3`.
+- **Series Management:** Added the editable **Next Episode Continuity Brief** modal (with optional 15s *"Previously On"* cold open), series grouping badges in `My Stories`, and 1-click **Stitch Season (Full Movie)**.
+
+### ⚡ Retention X-Ray Auto-Fix, Waveform & Pinpoint SFX
+- **1-Click Retention Auto-Fixer:** Extended Retention X-Ray with `retentionAutoFixer.ts` — automatically splits monotonous dead zones, injects zero-cost pattern interrupts/masks, trims weak hooks with 1-click Undo, and offers an optional BYOK-only AI hook rewrite.
+- **Mini-Timeline Waveform & Pinpoint SFX:** Added `waveformPeakExtractor.ts` (audio peak strip + silence gap indicators) and `proceduralSfxSynth.ts` (8 zero-404 Web Audio thriller cues including `three_slow_knocks`, `radio_static_burst`, and `music_cut_drop`), allowing click-to-place draggable SFX markers baked cleanly into both live playback and deterministic 30 FPS MP4 export.
+
+### 🛡️ Zero-API Sandbox & UI Polish
+- **Try Without API Key (Zero-API Sandbox):** Added `sandboxModeGuard.ts` enforcing a strict zero-outbound-API billing guard when no user BYOK key is present — letting visitors test 3D/2D editing, editorial cards, mic voiceovers, procedural SFX, and local WebCodecs MP4 exports without touching developer quota.
+- **UI & Visual Refinements:** Applied layout and styling polish across the Studio interface.
+
 ## ReelRig Ai [v0.2.0] - 2026-11-23 usual update
 
 ### 🎞️ Deterministic Video Export (WebCodecs + Mediabunny)
