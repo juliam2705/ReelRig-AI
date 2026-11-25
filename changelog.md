@@ -1,3 +1,29 @@
+## [v0.5.0-beta] - 2026-11-25
+
+### 🌍 True Open-World Terrain, Foliage & Elevated Structures (3D Mode)
+- **Procedural Heightfield & Road Network (`openTerrainEngine.ts`):** Added continuous seeded terrain elevation with automatic smooth flattening under standalone buildings and road corridors, plus procedural asphalt highways, country roads, dirt trails, and roadside guardrails.
+- **Instanced Wind-Swaying Foliage & Open Props (`openFoliageAndProps.ts`):** Added batched `THREE.InstancedMesh` grass (2,500–5,000 tufts) with deterministic `uTime` wind shaders, plus outdoor landmarks (abandoned cars with hazard lights, utility poles, fences, boulders, road signs) registered cleanly into A* navigation.
+- **Elevated Vertical Structures (`elevatedStructureBuilder.ts`):** Fixed open-world room spam and added full `elevationY` verticality with anchored support frames, railings, and unified `getWalkableSurfaceY()` height snapping — including 1-click **Fire Watchtower (11m)**, **Rooftop (14m)**, **Cliff Station (10m)**, and **Elevated Bridge** presets.
+
+### 🎬 3D Lookdev, Cinematography, Characters & Micro-FX
+- **Cinematic Lookdev Pipeline (`cinematicLookdevPipeline.ts`):** Upgraded rendering to `ACESFilmicToneMapping`, procedural `PMREM` environment reflections, canvas-generated PBR `bumpMap`/`roughnessMap` + wall-bottom AO, zero-cost grounded contact shadows, and deterministic `EffectComposer` post-processing (`UnrealBloomPass`, vignette, grading, micro film grain) tuned to prevent face blowout.
+- **Expressive Characters & Audio Lip-Sync (`characterFaceAnimator.ts`):** Upgraded character rigs with sculpted `CapsuleGeometry` silhouettes and layered outfit details, dynamic Canvas facial expressions with deterministic blinking and gaze tracking, secondary motion (breathing, head-lead turns, backpack bob, flashlight tremor), and deterministic 60 Hz RMS audio-driven lip-sync.
+- **Interactive Horror Cinematography (`cinematicCameraAndFx.ts`):** Added proximity-swinging & SFX-rattling hinged 3D doors, per-shot lens modes (**CCTV**, **Bodycam**, **Night Vision**), **Crash Zoom**, **Dolly Zoom (Vertigo)**, SFX-synced **Impact Shake**, controlled **Blackout** windows with volumetric flashlight cones, hard camera line-of-sight wall raycasting, and manual **A → B** camera waypoints on the 2D Mini-Map.
+- **Interior Polish, Horde & Micro-FX (`interiorPolishAndClutter.ts`, `hordeAndMicroFx.ts`):** Added batched baseboards, doorframes, ceiling beams, utility pipes, animated Canvas monitor screens, instanced micro-clutter, floating dust motes, instanced silhouette hordes (`InstancedMesh`), cold breath vapor, sparks/engine smoke, and deterministic prop pickups.
+
+### ⚡ Dopamine Hook & Retention Engine (9:16 Shorts)
+- **Automated Viral Hooks (`dopamineHookEngine.ts`):** Added toggleable **Cold Open + VHS Tape Rewind** (`0.0s–2.2s`), **Hidden Background Anomaly** comment-bait spawns, **Live Tension Telemetry HUD** (`Heart Rate BPM`, `Oxygen %`, `Battery %`, `Distance`, `Countdown`), and 4 one-click Story Director hook archetypes (`Broken Logic`, `Rule Horror`, `Countdown`, `Seamless Loop`).
+- **Hyper-Dopamine Pacing & Kinetic Typography:** Upgraded `Retention X-Ray` and Auto-Fix with a `≤2.5s` impulse pacing audit, added elastic **Pop + Shake** kinetic word-by-word captions inside safe zones, and introduced world-space **3D Spatial Typography** with true camera parallax.
+
+### 🎙️ Multi-Voice Audio, Radio DSP & Cross-Engine Story Systems (16:9 & 3D)
+- **Multi-Voice Casting & Radio DSP (`multiVoiceAudioEngine.ts`):** Added per-character Gemini TTS casting, deterministic **Radio / Intercom / Phone** bandpass + soft-clip + squelch-click DSP chains, and smooth **`-8 dB` Music Auto-Ducking** mirrored identically between live preview and `OfflineAudioContext` WebCodecs MP4 export.
+- **World & Inventory Bible (`seasonBibleEngine.ts`):** Added persistent cross-episode continuity tracking protagonist health/injuries, gear condition (`intact` / `low` / `broken` / `lost`), character survival status, and active mysteries — auto-synced after each episode and injected into `Episode N+1`.
+- **1-Click Trailer / Short Extractor (`shortExtractorEngine.ts`):** Convert any 16:9 episode into a vertical `1080×1920` 9:16 Short via **Instant Zero-API Smart-Crop Trailer** or **Native 3D Teaser** generation.
+
+### 🔐 Strict BYOK Security & Firestore Admin Panel
+- **Bulletproof BYOK Persistence & Billing Guard (`apiKeyStorage.ts`):** Added synchronous `localStorage` key hydration, opt-in private Google Account Cloud Sync (`users/{uid}/secrets/api`), and a strict centralized `requireUserByokKey()` audit removing all developer/env API key fallbacks for safe Public Beta.
+- **Firestore Access Control & Telemetry (`accessControlFirestore.ts`, `adminTelemetryService.ts`):** Migrated **Request Access** and **Allowlist** from Drive to Firestore, added **Studio Access Mode** (`Closed Beta` / `Open Sandbox + Cloud Beta` / `Public Beta` + `Maintenance Mode`), **Invite Codes** with usage caps, **Activity Funnel KPIs** + 7-day chart, **Live Client Error Log** (WebCodecs/WebGL crash tracker), **Global Broadcast Banner**, **Remote Feature Flags**, and a clean 3-tab Admin Panel layout.
+
 ## [v0.4.0] BETA - 2026-11-24 BIG UPDATE/FIX 3D THREE.JS
 
 ### 🌤️ Outdoor Sky, Weather & Horizon Engine (3D Mode)
